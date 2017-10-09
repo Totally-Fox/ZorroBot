@@ -1,0 +1,68 @@
+[16/07/2017 - 16:46:30] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)[16/07/2017 - 16:46:31] [Info] Connecting[16/07/2017 - 16:46:32] [Info] Connected[16/07/2017 - 16:46:32] [Info] Ready[16/07/2017 - 16:47:42] [Verbose] Executed "key" for TotallyFox#8866 in Bot Testing/general[27/07/2017 - 14:02:53] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[27/07/2017 - 14:02:55] [Info] Connecting
+[27/07/2017 - 14:02:55] [Info] Connected
+[27/07/2017 - 14:02:56] [Info] Ready
+[27/07/2017 - 14:05:02] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[27/07/2017 - 14:05:03] [Info] Connecting
+[27/07/2017 - 14:05:03] [Info] Connected
+[27/07/2017 - 14:05:04] [Info] Ready
+[27/07/2017 - 14:05:06] [Verbose] Executed "sonahelp" for TotallyFox#8866 in Bot Testing/general
+[27/07/2017 - 14:08:37] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[27/07/2017 - 14:08:38] [Info] Connecting
+[27/07/2017 - 14:08:38] [Info] Connected
+[27/07/2017 - 14:08:39] [Info] Ready
+[27/07/2017 - 14:09:39] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[27/07/2017 - 14:09:40] [Info] Connecting
+[27/07/2017 - 14:09:41] [Info] Connected
+[27/07/2017 - 14:09:42] [Info] Ready
+[27/07/2017 - 14:09:54] [Verbose] Executed "sonahelp" for TotallyFox#8866 in Bot Testing/general
+[27/07/2017 - 14:10:26] [Error] 
+[19/08/2017 - 16:29:12] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 16:29:12] [Info] Connecting
+[19/08/2017 - 16:29:13] [Info] Connected
+[19/08/2017 - 16:29:14] [Info] Ready
+[19/08/2017 - 16:29:25] [Error] 
+[19/08/2017 - 16:30:46] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 16:30:47] [Info] Connecting
+[19/08/2017 - 16:30:47] [Info] Connected
+[19/08/2017 - 16:30:48] [Info] Ready
+[19/08/2017 - 16:30:53] [Error] 
+[19/08/2017 - 16:58:20] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 16:58:21] [Info] Connecting
+[19/08/2017 - 16:58:22] [Info] Connected
+[19/08/2017 - 16:58:22] [Info] Ready
+[19/08/2017 - 16:58:41] [Verbose] Executed "join" for TotallyFox#8866 in Bot Testing/general
+[19/08/2017 - 17:06:47] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 17:06:47] [Info] Connecting
+[19/08/2017 - 17:06:48] [Info] Connected
+[19/08/2017 - 17:06:49] [Info] Ready
+[19/08/2017 - 17:06:53] [Verbose] Executed "join" for TotallyFox#8866 in Bot Testing/general
+[19/08/2017 - 17:07:45] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 17:07:46] [Info] Connecting
+[19/08/2017 - 17:07:47] [Info] Connected
+[19/08/2017 - 17:07:47] [Info] Ready
+[19/08/2017 - 17:07:50] [Error] 
+[19/08/2017 - 17:08:01] [Error] 
+[19/08/2017 - 17:09:48] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 17:09:48] [Info] Connecting
+[19/08/2017 - 17:09:49] [Info] Connected
+[19/08/2017 - 17:09:49] [Info] Ready
+[19/08/2017 - 17:14:31] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 17:14:32] [Info] Connecting
+[19/08/2017 - 17:14:33] [Info] Connected
+[19/08/2017 - 17:14:33] [Info] Ready
+[19/08/2017 - 17:14:37] [Error] 
+[19/08/2017 - 17:22:55] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 17:22:56] [Info] Connecting
+[19/08/2017 - 17:22:57] [Info] Connected
+[19/08/2017 - 17:22:57] [Info] Ready
+[19/08/2017 - 17:23:04] [Error] 
+[19/08/2017 - 17:49:03] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 17:49:03] [Info] Connecting
+[19/08/2017 - 17:49:04] [Info] Connected
+[19/08/2017 - 17:49:05] [Info] Ready
+[19/08/2017 - 20:11:11] [Info] Discord.Net v1.0.0-rc3-00757 (API v6)
+[19/08/2017 - 20:11:13] [Info] Connecting
+[19/08/2017 - 20:11:13] [Info] Connected
+[19/08/2017 - 20:11:14] [Info] Ready
+[19/08/2017 - 20:11:24] [Verbose] Executed "sona" for TotallyFox#8866 in Bot Testing/general

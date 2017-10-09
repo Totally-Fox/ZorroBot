@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F4D06452-095B-4F72-B93D-2AC0E82579D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0F7C0AB5-2F81-4B70-83B4-4B14F4C9F52C}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Zorro_Bot", "src\Zorro_Bot\Zorro_Bot.xproj", "{C191F860-10CB-44AF-A075-98737240B0B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C191F860-10CB-44AF-A075-98737240B0B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C191F860-10CB-44AF-A075-98737240B0B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C191F860-10CB-44AF-A075-98737240B0B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C191F860-10CB-44AF-A075-98737240B0B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C191F860-10CB-44AF-A075-98737240B0B0} = {F4D06452-095B-4F72-B93D-2AC0E82579D2}
+	EndGlobalSection
+EndGlobal
