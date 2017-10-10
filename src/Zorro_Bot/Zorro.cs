@@ -19,7 +19,9 @@ namespace Zorro_Bot
         private DiscordSocketClient Client;
         private CommandService CommandService;
 
-        #region Run Stuff
+        internal static void Main(string[] args)
+            => new Zorro().RunAsync().GetAwaiter().GetResult();
+
         public async Task RunAsync()
         {
             Console.WriteLine($"- Starting up Zorro Bot v[{Assembly.GetEntryAssembly().GetName().Version}] -\n");
@@ -44,7 +46,6 @@ namespace Zorro_Bot
 
             Client.Log += Log;
             CommandService.Log += Log;
-            #endregion
 
             await Client.LoginAsync(TokenType.Bot, "");
             await Client.StartAsync().ConfigureAwait(false);

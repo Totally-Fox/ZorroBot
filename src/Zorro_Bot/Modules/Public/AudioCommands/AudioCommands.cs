@@ -108,7 +108,7 @@ namespace Zorro_Bot.Modules.Public.AudioCommands
                     NextSong = list.Count != 1 ? $"**Following Song:** `{list.ElementAt(1)}`" : "";
                     LeftInQueue = list.Count == 1 ? "Only one song remaining!" : $"Currently {list.Count} songs in queue";
 
-                    await Context.Channel.SendMessageAsync($"**Now Playing:** `{list.First()}`/n/n{NextSong}/n{LeftInQueue}");
+                    await Context.Channel.SendMessageAsync($"**Now Playing:** `{list.First()}`\n\n{NextSong}\n{LeftInQueue}");
 
                     await _service.SendAudio(Context.Guild, Context.Channel, list.First());
 

@@ -75,13 +75,13 @@ namespace Zorro_Bot.Services.AudioService
 
             if (ConnectedChannels.TryGetValue(g.Id, out IAudioClient _client))
             {
-                var dStream = _client.CreateDirectPCMStream(AudioApplication.Music);
+                var dStream = _client.CreatePCMStream(AudioApplication.Music);
                 await CreateStream(FilePath, g.Id).StandardOutput.BaseStream.CopyToAsync(dStream);
                 await dStream.FlushAsync();
             }
         }
 
-        private Process CreateStream(string p,ulong id)
+        private Process CreateStream(string p, ulong id)
         {
             Process GuildAudio = Process.Start(new ProcessStartInfo
             {
