@@ -1,5 +1,8 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Threading.Tasks;
+
+using Microsoft.Extensions.DependencyInjection;
 
 using Discord.Commands;
 using Discord.WebSocket;
@@ -8,10 +11,23 @@ namespace Zorro_Bot.Extensions.Handler
 {
     public class CommandHandlers
     {
-        public async Task StartAsync()
+        private readonly DiscordSocketClient Client;
+        private readonly CommandService CommandService;
+        private IServiceProvider Services;
+
+        public CommandHandlers(IServiceProvider services, DiscordSocketClient client, CommandService commands)
         {
-            await Zorro.CommandService.AddModulesAsync(Assembly.GetEntryAssembly());
-            Zorro.Client.MessageReceived += HandleCommand;
+            Client = client;
+            CommandService = commands;
+            Services = services;
+
+            Client.MessageReceived += HandleCommand;
+        }
+
+        public async Task InitAsync(IServiceProvider services)
+        {
+            Services = services;
+            await CommandService.AddModulesAsync(Assembly.GetEntryAssembly());
         }
 
         public async Task HandleCommand(SocketMessage m)
@@ -20,12 +36,12 @@ namespace Zorro_Bot.Extensions.Handler
             if (msg == null)
                 return;
 
-            var Context = new CommandContext(Zorro.Client, msg);
+            var Context = new CommandContext(Client, msg);
             int argPos = 0;
 
             if (!msg.HasStringPrefix("ro;", ref argPos) || msg.Author.IsBot) return;
 
-            var result = await Zorro.CommandService.ExecuteAsync(Context, argPos);
+            var result = await CommandService.ExecuteAsync(Context, argPos, Services);
 
             if (!result.IsSuccess)
             {

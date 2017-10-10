@@ -27,7 +27,6 @@ namespace Zorro_Bot.Modules.Public.Zorro
         Image _Ears = null;
         Image _Hair = null;
         Image _Mouth = null;
-        Image _Floof = null;
         Image _Tail = null;
         Image _Accesory = null;
 

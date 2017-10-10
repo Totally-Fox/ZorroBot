@@ -3,19 +3,21 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
+using Microsoft.Extensions.DependencyInjection;
+
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 
-using Zorro_Bot.Extensions.Ready;
 using Zorro_Bot.Extensions.Handler;
+using Zorro_Bot.Services.AudioService;
 
 namespace Zorro_Bot
 {
     public class Zorro
     {
-        public static DiscordSocketClient Client { get; private set; }
-        public static CommandService CommandService { get; private set; }
+        private DiscordSocketClient Client;
+        private CommandService CommandService;
 
         #region Run Stuff
         public async Task RunAsync()
@@ -36,28 +38,29 @@ namespace Zorro_Bot
                 DefaultRunMode = RunMode.Async
             });
 
+            var services = ConfigureServices();
+            await services.GetRequiredService<CommandHandlers>().InitAsync(services);
+
+
             Client.Log += Log;
             CommandService.Log += Log;
             #endregion
 
-            #region Login Attempt
-            try
-            {
-                await Client.LoginAsync(TokenType.Bot, "");
-                await Client.StartAsync().ConfigureAwait(false);
-            }
-            catch
-            {
-                Console.Write("Login Failed :: Exiting in [3] seconds");
-                await Task.Delay(3000);
-                Environment.Exit(0);
-            }
-            #endregion
-
-            await new CommandHandlers().StartAsync();
-            new Ready();
+            await Client.LoginAsync(TokenType.Bot, "");
+            await Client.StartAsync().ConfigureAwait(false);
+            await Client.SetGameAsync("Yap at the Moon");
 
             await Task.Delay(-1);
+        }
+
+        private IServiceProvider ConfigureServices()
+        {
+            return new ServiceCollection()
+                .AddSingleton(Client)
+                .AddSingleton(CommandService)
+                .AddSingleton<CommandHandlers>()
+                .AddSingleton<AudioService>()
+                .BuildServiceProvider();
         }
 
         private static Task Log(LogMessage m)

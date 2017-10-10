@@ -14,7 +14,7 @@ using Zorro_Bot.Extensions.Json;
 
 namespace Zorro_Bot.Modules.Public.Zorro
 {
-    public class Commands : ModuleBase<ICommandContext>
+    public class Commands : ModuleBase
     {
             #region Help
             [Command("help")]
@@ -41,7 +41,7 @@ namespace Zorro_Bot.Modules.Public.Zorro
                 else
                     _m = _m.Take(_a);
 
-                await Context.Channel.DeleteMessagesAsync(_m).ConfigureAwait(false);
+            await (Context.Channel as ITextChannel).DeleteMessagesAsync(_m);
                 await Context.Channel.SendMessageAsync($":panda_face: Spring Cleaning Oso has deleted `{_m.Count()}` messages! :leaves:");
             }
             #endregion

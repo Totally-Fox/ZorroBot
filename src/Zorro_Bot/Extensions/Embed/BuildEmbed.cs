@@ -15,7 +15,7 @@ namespace Zorro_Bot.Extensions.Embed
             eb.Color = color;
             eb.ImageUrl = embedImage ?? "";
 
-            return chan.SendMessageAsync("", false, eb);
+            return chan.SendMessageAsync("", false, eb.Build());
         }
     }
 }
