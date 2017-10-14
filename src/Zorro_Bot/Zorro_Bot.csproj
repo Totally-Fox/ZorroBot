@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Audio\" />
+    <Folder Include="Data\Configuration\Bot\" />
   </ItemGroup>
 
 </Project>

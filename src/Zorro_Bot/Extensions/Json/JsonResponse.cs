@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
@@ -18,7 +16,7 @@ namespace Zorro_Bot.Extensions.Json
 
         public static Task<IUserMessage> ReplyJson(this IMessageChannel chan, string _k)
         {
-            var jFile = File.ReadAllText(@"Data/Json/Yap.json", new UTF8Encoding(false));
+            var jFile = File.ReadAllText(@"Data/Configuration/Mapping/Yap.json", new UTF8Encoding(false));
             var jDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(jFile);
             jMap = new Map(jDict);
 

@@ -1,22 +1,14 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using System.Linq;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 using Discord.Commands;
-using Discord.WebSocket;
 
-using Zorro_Bot.Extensions.Embed;
-
-namespace Zorro_Bot.Modules.Public.Zorro
+namespace Zorro_Bot.Modules.Public.SonaCreator
 {
-    public class OverlayCommand : ModuleBase
+    public class SonaCreator : ModuleBase
     {
-        //Global Base Image Paths
+        // Global Base Image Paths
         static readonly string BasePath = @"Data/Img/";
         static readonly string OutputPath = @"Data/Img/Output/";
 
@@ -33,7 +25,11 @@ namespace Zorro_Bot.Modules.Public.Zorro
         [Command("sonahelp")]
         public async Task SonaHelpAsync()
         {
-            await Context.Channel.Embed("Sona Builder", "To create your sona, type `ro;sona 1 1 2 1 3 1 2` but with any number 1-3 \n\n In order, numbers are: \n\n -Species \n -Eyes \n -Ears \n -Hair \n -Mouth \n -Tail \n -Accesory", new Discord.Color(239, 199, 55), "");
+            await Context.Channel.SendMessageAsync("", false, new Discord.EmbedBuilder()
+                .WithTitle("Sona Builder")
+                .WithDescription("To create your sona, type `ro;sona 1 1 2 1 3 1 2` but with any number 1-3 \n\n In order, numbers are: \n\n -Species \n -Eyes \n -Ears \n -Hair \n -Mouth \n -Tail \n -Accesory")
+                .WithColor(new Discord.Color(239, 199, 55))
+                .Build());
         }
 
         [Command("sona")]

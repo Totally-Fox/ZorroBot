@@ -11,13 +11,14 @@ using Discord.WebSocket;
 
 using Zorro_Bot.Extensions.Handler;
 using Zorro_Bot.Services.AudioService;
+using Zorro_Bot.Services.Configuration;
 
 namespace Zorro_Bot
 {
     public class Zorro
     {
-        private DiscordSocketClient Client;
-        private CommandService CommandService;
+        private DiscordSocketClient ZorroClient;
+        private CommandService ZorroCommandService;
 
         internal static void Main(string[] args)
             => new Zorro().RunAsync().GetAwaiter().GetResult();
@@ -26,14 +27,14 @@ namespace Zorro_Bot
         {
             Console.WriteLine($"- Starting up Zorro Bot v[{Assembly.GetEntryAssembly().GetName().Version}] -\n");
 
-            Client = new DiscordSocketClient(new DiscordSocketConfig()
+            ZorroClient = new DiscordSocketClient(new DiscordSocketConfig()
             {
                 LogLevel = LogSeverity.Info,
                 MessageCacheSize = 100,
                 DefaultRetryMode = RetryMode.AlwaysRetry
             });
-
-            CommandService = new CommandService(new CommandServiceConfig()
+            //
+            ZorroCommandService = new CommandService(new CommandServiceConfig()
             {
                 CaseSensitiveCommands = false,
                 LogLevel = LogSeverity.Verbose,
@@ -41,15 +42,18 @@ namespace Zorro_Bot
             });
 
             var services = ConfigureServices();
-            await services.GetRequiredService<CommandHandlers>().InitAsync(services);
+            await services.GetRequiredService<CommandHandler>().InitAsync(services);
+            //
+            var creds = services.GetRequiredService<BotConfiguration>().Load();
 
 
-            Client.Log += Log;
-            CommandService.Log += Log;
+            ZorroClient.Log += Log;
+            ZorroCommandService.Log += Log;
 
-            await Client.LoginAsync(TokenType.Bot, "");
-            await Client.StartAsync().ConfigureAwait(false);
-            await Client.SetGameAsync("Yap at the Moon");
+            await ZorroClient.LoginAsync(TokenType.Bot, creds.Token);
+            await ZorroClient.StartAsync();
+            //
+            await ZorroClient.SetGameAsync(creds.Game);
 
             await Task.Delay(-1);
         }
@@ -57,20 +61,25 @@ namespace Zorro_Bot
         private IServiceProvider ConfigureServices()
         {
             return new ServiceCollection()
-                .AddSingleton(Client)
-                .AddSingleton(CommandService)
-                .AddSingleton<CommandHandlers>()
+                // Base Services
+                .AddSingleton(ZorroClient)
+                .AddSingleton(ZorroCommandService)
+                .AddSingleton<CommandHandler>()
+                // Additional Services
                 .AddSingleton<AudioService>()
+                .AddSingleton<BotConfiguration>()
                 .BuildServiceProvider();
         }
 
-        private static Task Log(LogMessage m)
+        private Task Log(LogMessage m)
         {
-            Console.WriteLine(string.Concat("[", DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss"), "] [", m.Severity, "] ", m.Message));
-
-            using (StreamWriter file = new StreamWriter(File.Open(@"Data/Text/Log.txt", FileMode.Append)))
+            string logM = string.Concat("[", DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss"), "] [", m.Severity, "] ", m.Message, m.Exception);
+            //
+            Console.WriteLine(logM);
+            //
+            using (StreamWriter file = new StreamWriter(File.Open(@"Data/Logging/Log.txt", FileMode.Append)))
             {
-                file.Write(string.Concat("[", DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss"), "] [", m.Severity, "] ", m.Message) + Environment.NewLine);
+                file.Write(logM + Environment.NewLine);
             }
 
             return Task.CompletedTask;

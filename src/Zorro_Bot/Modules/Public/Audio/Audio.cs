@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
@@ -11,9 +10,9 @@ using YoutubeExplode;
 
 using Zorro_Bot.Services.AudioService;
 
-namespace Zorro_Bot.Modules.Public.AudioCommands
+namespace Zorro_Bot.Modules.Public.Audio
 {
-    public class AudioCommands : ModuleBase
+    public class Audio : ModuleBase
     {
         private static Dictionary<ulong, List<string>> SongQueue =
             new Dictionary<ulong, List<string>>();
@@ -23,7 +22,7 @@ namespace Zorro_Bot.Modules.Public.AudioCommands
 
         private readonly AudioService _service;
 
-        public AudioCommands(AudioService service)
+        public Audio(AudioService service)
             => _service = service;
 
         [Command("bap", RunMode = RunMode.Async)]
